@@ -113,25 +113,25 @@ char    *get_next_line(int fd)
 	return (line_actual);
 }
 
-// int main()
-// {
-// 	int char_read;
-// 	char *line;
-// 	int fd = open("teste.txt", O_RDWR);
+int main()
+{
+	int char_read;
+	char *line;
+	int fd = open("teste.txt", O_RDWR);
 
-// 	// line = get_next_line(fd);
-// 	// printf("%s", line);
-// 	if (fd < 0)
-// 	{
-// 		printf("Erro ao abrir o arquivo\n");
-// 		return 1;
-// 	}
-// 	while ((line = get_next_line(fd)) != NULL)
-// 	{
-// 		printf("%s", line);
-// 		free(line);
-// 	}
-// 	printf("\n");
-// 	close(fd);
-// 	return 0;
-// }
+	// line = get_next_line(fd);
+	// printf("%s", line);
+	if (fd < 0)
+	{
+		printf("Erro ao abrir o arquivo\n");
+		return 1;
+	}
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+		free(line);
+	}
+	printf("\n");
+	close(fd);
+	return 0;
+}
