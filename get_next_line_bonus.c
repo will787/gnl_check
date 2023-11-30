@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 12:08:50 by wivieira          #+#    #+#             */
-/*   Updated: 2023/11/30 12:08:50 by wivieira         ###   ########.fr       */
+/*   Created: 2023/11/30 12:08:37 by wivieira          #+#    #+#             */
+/*   Updated: 2023/11/30 12:08:37 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,27 +98,27 @@ void	ft_createnode(t_list **list, int fd)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*list;	
+	static t_list	*list[1024];	
 	char			*line_actual;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (read(fd, &line_actual, 0) < 0)
 	{
-		free_list(list);
-		list = NULL;
+		free_list(list[fd]);
+		list[fd] = NULL;
 		return (NULL);
 	}
 	line_actual = (NULL);
-	ft_createnode(&list, fd);
-	if (!list)
+	ft_createnode(&list[fd], fd);
+	if (!list[fd])
 		return (NULL);
-	line_actual = outside_line(list);
-	finallylist(&list);
+	line_actual = outside_line(list[fd]);
+	finallylist(&list[fd]);
 	if (line_actual[0] == '\0')
 	{
-		free_list(list);
-		list = NULL;
+		free_list(list[fd]);
+		list[fd] = NULL;
 		free(line_actual);
 		return (NULL);
 	}

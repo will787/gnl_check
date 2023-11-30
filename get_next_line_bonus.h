@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wivieira <wivieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 13:19:13 by wivieira          #+#    #+#             */
-/*   Updated: 2023/11/30 13:19:13 by wivieira         ###   ########.fr       */
+/*   Created: 2023/11/30 13:59:46 by wivieira          #+#    #+#             */
+/*   Updated: 2023/11/30 13:59:46 by wivieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
@@ -19,12 +20,12 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
-# endif
+#endif
 
 typedef struct s_list
 {
-	char			*content;
-	struct s_list	*next;
+	char            *content;
+	struct s_list   *next; 
 }					t_list;
 
 char	*get_next_line(int fd);
